@@ -14,6 +14,7 @@ const studentSchema = new mongoose.Schema({
   name: String,
   email: String,
   avatarURL: String,
+  googleId: String,
   facts: [factSchema]
 }, {
   timestamps: true
