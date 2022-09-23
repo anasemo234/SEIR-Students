@@ -22,7 +22,13 @@
         <ul class="right">
           <li><a href="/">Home</a></li>
           <!-- Place Login UI Here -->
-        
+          <li>
+            <% if (user) { %>
+              <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+              <% } else { %>
+                <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+                <% } %>
+          </li>
         </ul>
       </div>
     </nav>
@@ -39,21 +45,27 @@
               <div>
                 <span class="card-title">
                   <i class="small material-icons">perm_identity</i>
-                  <span class="student-name"><%= student.name %></span>
-                  <% if (student.cohort) { %><span class="badge white">SEI <%= student.cohort %></span><% } %>
+                  <span class="student-name">
+                    <%= student.name %>
+                  </span>
+                  <% if (student.cohort) { %><span class="badge white">SEI <%= student.cohort %></span>
+                    <% } %>
                 </span>
               </div>
               <ul class="collection">
                 <% student.facts.forEach(function(fact) { %>
-                  <li class="collection-item blue-grey-text text-darken-2"><%= fact.text %></li>
-                <% }) %>
+                  <li class="collection-item blue-grey-text text-darken-2">
+                    <%= fact.text %>
+                  </li>
+                  <% }) %>
               </ul>
               <!-- Place Add Fact UI Here -->
             </div>
           </div>
-        <% }) %>
+          <% }) %>
       </div>
     </div>
   </main>
 </body>
+
 </html>

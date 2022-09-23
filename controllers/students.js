@@ -7,13 +7,16 @@ module.exports = {
 };
 
 function index(req, res) {
-  Student.find({}, function(err, students) {
-    res.render('students/index', { students });
+  Student.find({}, function (err, students) {
+    res.render('students/index', {
+      students,
+      user: req.user
+    });
   });
 }
 
 function addFact(req, res) {
-  
+
 }
 
 function delFact(req, res) {
